@@ -1,35 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Pictures</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>File</th>
-      <th>Description</th>
-      <th>Vote count</th>
-      <th>Average age</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= picture.user_id %></td>
-        <td><%= picture.file %></td>
-        <td><%= picture.description %></td>
-        <td><%= picture.vote_count %></td>
-        <td><%= picture.average_age %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Picture', new_picture_path %>
+<center>
+  <%= image_tag @pictures.sample.file.main.url %>
+  <%= render 'vote_form', vote: @vote%>
+</center>

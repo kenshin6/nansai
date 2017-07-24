@@ -5,6 +5,7 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @pictures = Picture.all
+    @vote = Vote.new
   end
 
   # GET /pictures/1
