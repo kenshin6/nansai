@@ -14,7 +14,7 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
-    @vote = Vote.new
+    @vote = current_user.votes.build
   end
 
   # GET /votes/1/edit
@@ -24,12 +24,10 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(vote_params)
-
+    @vote = current_user.votes.build(vote_params)
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote }
+        return false
       else
         format.html { render :new }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
@@ -69,6 +67,6 @@ class VotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vote_params
-      params.require(:vote).permit(:user_id, :picture_id, :age)
+      params.require(:vote).permit(:user_id, :age, :picture_id)
     end
 end

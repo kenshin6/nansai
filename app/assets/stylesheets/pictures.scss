@@ -1,3 +1,39 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pic_container {
+  height: 100%;
+  width: 80%;
+}
+
+.main_picture {
+  width: 75%;
+  position: fixed;
+  left: 50%;
+  margin-left: -37.5%;
+}
+
+.stats_box {
+  display: table;
+  text-align: center;
+  position: inline-block;
+  display: none;
+  background-color: #FAFAFA;
+  border-color: #E6E6E6;
+  width: 350px;
+  height: 330px;
+  float: right;
+  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.vote_form {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 50px;
+  width: 100%;
+}
+

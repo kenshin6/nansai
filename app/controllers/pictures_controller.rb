@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @picture = Picture.where.not(user_id: current_user.try(:id)).sample
     @vote = Vote.new
   end
 

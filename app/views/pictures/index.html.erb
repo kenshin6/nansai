@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 <center>
-  <%= image_tag @pictures.sample.file.main.url %>
-  <%= render 'vote_form', vote: @vote%>
+  <div class="pic_container">
+    <div class="main_picture">
+      <%= image_tag @picture.file.main.url %>
+    </div>
+    <div class="stats_box">
+      <%= render 'picture_stats', picture: @picture %>
+    </div>
+  </div>
+  <div class="vote_form">
+    <%= render 'vote_form', vote: @vote %>
+  </div>
 </center>

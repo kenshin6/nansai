@@ -16,7 +16,9 @@
     <%= f.number_field :age %>
   </div>
 
+  <%= f.hidden_field :picture_id, value: @picture.id %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit id: 'vote_button' %>
   </div>
 <% end %>
