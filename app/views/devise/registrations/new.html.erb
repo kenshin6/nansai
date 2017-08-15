@@ -1,57 +1,64 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <h2>Sign up</h2>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :country %><br />
+        <%= f.country_select :country %>
+      </div>
+
+      <div class="field">
+        <%= f.label :birthday %><br />
+        <%= f.date_select :birthday,
+                          discard_day: true,
+                          discard_month: true,
+                          start_year: Date.today.year,
+                          end_year: 1900 %>
+      </div>
+
+      <div class="field" style="display:inline">
+        <%= f.radio_button :sex, 'M' %>
+        <%= f.label :sex, 'M', value: 'male' %>
+        <%= f.radio_button :sex, 'F' %>
+        <%= f.label :sex, 'F', value: 'female' %>
+        <%= f.radio_button :sex, 'Other' %>
+        <%= f.label :sex, 'Other', value: 'other' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.country_select :country %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday,
-                      discard_day: true,
-                      discard_month: true,
-                      start_year: Date.today.year,
-                      end_year: 1900 %>
-  </div>
-
-  <div class="field" style="display:inline">
-    <%= f.radio_button :sex, 'M' %>
-    <%= f.label :sex, 'M', value: 'male' %>
-    <%= f.radio_button :sex, 'F' %>
-    <%= f.label :sex, 'F', value: 'female' %>
-    <%= f.radio_button :sex, 'Other' %>
-    <%= f.label :sex, 'Other', value: 'other' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="col-md-4"></div>
+</div>
